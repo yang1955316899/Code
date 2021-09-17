@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+<ul>
+    <li>abc</li>
+    <li>abc</li>
+    <li>abc</li>
+</ul>
+<script>
+    var ul = document.querySelector('ul');
+    ul.addEventListener('click', function (e) {
+        // 我们给ul 绑定了事件  那么this 就指向ul  
+        console.log(this);
+        //了解就行，功能和this相似，而且还有兼容性问题
+        console.log(e.currentTarget);
+        // e.target 指向我们点击的那个对象 谁触发了这个事件 我们点击的是li e.target 指向的就是li
+        console.log(e.target);
+
+    })
+    // 了解兼容性,ie浏览器兼容性做法，ie浏览器不认识e.target只支持e.srcElement
+    div.onclick = function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        console.log(target);
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    setTimeout(function () {
+        console.log('时间到了');
+
+    }, 2000);
+    function callback() {
+        console.log('爆炸了');
+
+    }
+    var timer1 = setTimeout(callback, 3000);
+    var timer2 = setTimeout(callback, 5000);
+    setTimeout('callback()', 3000); // 我们不提倡这个写法
+</script>
+</body>
+
+</html>

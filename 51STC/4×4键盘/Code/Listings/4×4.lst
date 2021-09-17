@@ -1,0 +1,134 @@
+C51 COMPILER V9.60.0.0   4__4                                                              05/29/2021 17:08:47 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE 4__4
+OBJECT MODULE PLACED IN .\Objects\4��4.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 4��4.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\4��4
+                    -.lst) TABS(2) OBJECT(.\Objects\4��4.obj)
+
+line level    source
+
+   1          #include <reg51.h>                                // 定义8051暂存器之标头档
+   2          #define KEYP P2                                   // 扫瞄输出端口(高位元)及键盘输入端口(�
+             -�位元)
+   3          #define SEG7P P0                                  // 7节显示器(g~a)输出埤
+   4          unsigned char code TAB[17] =                      // 共阳7节显示器(g~a)编码
+   5              {0xc0, 0xf9, 0xa4, 0xb0, 0x99,                // 数字0-4
+   6               0x92, 0x82, 0xf8, 0x80, 0x98,                // 数字5-9
+   7               0xa0, 0x83, 0xa7, 0xa1, 0x84,                // 字母a-e(10-14)
+   8               0x8e, 0xbf};                                 // 字母F(15),负号(-)
+   9          unsigned char disp[4] = {0xbf, 0xbf, 0xbf, 0xbf}; // 显示阵列初值为负号(-)
+  10          unsigned char scan[4] = {0xef, 0xdf, 0xbf, 0x7f}; // 7显示器及键盘之扫瞄码
+  11          void delay1ms(int);                               // 声明延迟函数
+  12          void scanner(void);                               // 声明扫瞄函数
+  13          //==主程序================================================
+  14          main() // 主程序开始
+  15          {
+  16   1          while (1)      // 无穷回圈,程序一直跑
+  17   1              scanner(); // 扫瞄键盘及显示7段显示器
+  18   1      } // 主程序结束
+  19          // === 延迟函数,延迟约x*1ms ================================
+  20          void delay1ms(int x) // 防弹跳函数开始
+  21          {
+  22   1          int i, j;               // 声明整数变数i
+  23   1          for (i = 0; i < x; i++) // 计数x次,延迟约*1ms
+  24   1              for (j = 0; j < 120; j++)
+  25   1                  ; // 计数120次,延迟约1ms
+  26   1      } // 防弹跳函数结束
+  27          // ======= 扫瞄4*4键盘及4个7节显示器函数 ================
+  28          void scanner(void) // 扫瞄函数开始
+  29          {
+  30   1          unsigned char col, row;       // 声明变数(col:行,row:列,dig:颢示位)
+  31   1          unsigned char rowkey, kcode;  // 声明变数(rowkey:列键值,kcode:按键码)
+  32   1          for (col = 0; col < 4; col++) // for回圈,扫瞄第col行
+  33   1          {
+  34   2              KEYP = scan[col];  // 高4位输出扫瞄信号,低4位元输入列值
+  35   2              SEG7P = disp[col]; // 输出第col行数字
+  36   2      
+  37   2              rowkey = ~KEYP & 0x0f;
+  38   2              // 读入KEYP低4位，反相再清除高4位求出列键值
+  39   2              if (rowkey != 0) // 若有按键
+  40   2              {
+  41   3                  if (rowkey == 0x01)
+  42   3                      row = 0; // 若第0列被按下
+  43   3                  else if (rowkey == 0x02)
+  44   3                      row = 1; // 若第1列被按下
+  45   3                  else if (rowkey == 0x04)
+  46   3                      row = 2; // 若第2列被按下
+  47   3                  else if (rowkey == 0x08)
+  48   3                      row = 3;           // 若第3列被按下
+  49   3                  kcode = 4 * col + row; // 算出按键之号码
+  50   3                  if (kcode < 0x0a)
+  51   3                  //  for(dig =0; dig <3 ; dig++) // 显示阵列之左3字
+  52   3                  {
+  53   4                      disp[3] = disp[2];
+C51 COMPILER V9.60.0.0   4__4                                                              05/29/2021 17:08:47 PAGE 2   
+
+  54   4                      disp[2] = disp[1];
+  55   4                      disp[1] = disp[0];
+  56   4      
+  57   4                      //    disp[dig]=disp[dig+1];    // 将右侧编码左移1位
+  58   4                      disp[0] = TAB[kcode]; // 键值编码後，写入最右侧
+  59   4                  }
+  60   3                  switch (kcode)
+  61   3                  {
+  62   4                  case 0x0a:
+  63   4                  {
+  64   5                      disp[3] = disp[2] = disp[1] = disp[0] = 0xbf;
+  65   5                      KEYP = 0x0f;
+  66   5                      break;
+  67   5                  }
+  68   4                  case 0x0b:
+  69   4                  {
+  70   5                      disp[0] = disp[1];
+  71   5                      disp[1] = disp[2];
+  72   5                      disp[2] = disp[3];
+  73   5                      disp[3] = 0xbf;
+  74   5                      break;
+  75   5                  }
+  76   4                  case 0x0c: //倒置
+  77   4                  {
+  78   5                      unsigned char i, j;
+  79   5                      i = disp[0];
+  80   5                      disp[0] = disp[3];
+  81   5                      disp[3] = i;
+  82   5                      j = disp[1];
+  83   5                      disp[1] = disp[2];
+  84   5                      disp[2] = j;
+  85   5                      break;
+  86   5                  }
+  87   4                  case 0x0d: //数字与第一个数相同
+  88   4                  {
+  89   5                      int i;
+  90   5                      for (i = 0; i < 4; i++)
+  91   5                          disp[i] = disp[3];
+  92   5                      ;
+  93   5                      break;
+  94   5                  }
+  95   4                  case 0x0e: //后两位与前两位对称
+  96   4                  {
+  97   5                      for (j = 0; j < 4; j++)
+*** ERROR C202 IN LINE 97 OF 4��4.c: 'j': undefined identifier
+  98   5                          disp[j] = 0xff;
+*** ERROR C202 IN LINE 98 OF 4��4.c: 'j': undefined identifier
+  99   5                      break;
+ 100   5                  }
+ 101   4                  case 0x0f:
+ 102   4                  {
+ 103   5                      int j;
+ 104   5                      for (j = 0; j < 4; j++)
+ 105   5                          disp[j] = 0x00;
+ 106   5                      break;
+ 107   5                  }
+ 108   4                  }
+ 109   3              }                          // if叙述(有按键时)结束
+ 110   2              while (rowkey != 0)        // 当按钮未放开
+ 111   2                  rowkey = ~KEYP & 0x0f; // 再读入列键值
+ 112   2              delay1ms(4);               // 延迟4ms
+ 113   2      
+C51 COMPILER V9.60.0.0   4__4                                                              05/29/2021 17:08:47 PAGE 3   
+
+ 114   2          } //  for回圈结束(扫瞄col行)
+ 115   1      } //  扫瞄函数scanner()结束
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)

@@ -1,0 +1,371 @@
+// 字体引入
+@font-face {
+    font-family: 'global-iconfont';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('../fonts/iconfont_2.woff') format('woff');
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('../fonts/icomoon.ttf?3h9uu7') format('truetype'),
+        url('../fonts/icomoon.woff?3h9uu7') format('woff'),
+        url('../fonts/icomoon.svg?3h9uu7#icomoon') format('svg');
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'iconfont';
+
+    src: url(../fonts/iconfont_1.woff) format('woff');
+}
+
+// 常用属性定义
+//版心定义
+.wight-margin {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.layer {
+    margin-top: 10px;
+}
+
+//链接鼠标经过变色
+.a-hover-color>li>a,
+.a-hover-color a,
+.a-hover-color h4 a {
+    color: #6c6c6c;
+
+    &:hover {
+        color: #f40 !important;
+    }
+}
+
+//字体大小和字体族定义
+.font {
+    font-family: tahoma,
+        arial,
+        'Hiragino Sans GB',
+        '宋体',
+        sans-serif;
+}
+
+.font-12 {
+    font: 12px/1.5 tahoma,
+        arial,
+        'Hiragino Sans GB',
+        '宋体',
+        sans-serif;
+}
+
+.font-16 {
+    font: 16px/1.5 tahoma,
+        arial,
+        'Hiragino Sans GB',
+        '宋体',
+        sans-serif;
+}
+
+.iconfont {
+    font-family: 'iconfont';
+}
+
+// 背景颜色类
+.background-image-linear-gradient {
+    background-image: linear-gradient(to right, #ff9000 0, #ff5000 100%);
+}
+
+//伪元素类
+.triangle::after {
+    margin-left: 2px;
+
+    content: '';
+
+    color: #9c9c9c;
+
+    font-family: 'icomoon';
+    line-height: 30px;
+}
+
+.shopping-car::before {
+    content: '';
+
+    color: #ff4000;
+
+    font-family: 'iconfont';
+    line-height: 30px;
+}
+
+.star::before {
+    content: '';
+
+    color: #9c9c9c;
+
+    font-family: 'iconfont';
+    line-height: 30px;
+}
+
+.menu::before {
+    content: '';
+
+    color: #ff4000;
+
+    font-family: 'iconfont';
+    line-height: 30px;
+}
+
+.nav-hover:hover {
+    border: 1px solid #eee;
+    border-bottom: none;
+    background-color: #fff;
+}
+
+//配合Js使用的属性
+// 搜索框选择
+.unselected {
+    float: left;
+
+    width: 36px;
+    height: 22px;
+    margin-right: 4px;
+
+    text-align: center;
+
+    color: #F40;
+
+    line-height: 22px;
+}
+
+.police_news {
+    border-bottom: 2px solid #F40;
+}
+
+.selected {
+    float: left;
+
+    width: 36px;
+    height: 22px;
+    margin-right: 4px;
+
+    text-align: center;
+
+    color: #FFF;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.wangwang-selected {
+    color: #fff !important;
+    background-image: linear-gradient(135deg, #ff971b, #ff5000);
+
+    font-weight: 700;
+}
+
+.nav {
+    height: 35px;
+
+    border-bottom: 1px solid #eee;
+    background-color: rgb(245, 245, 245);
+
+    .userinfo,
+    .url {
+        ul {
+            .global ul {
+                bottom: -270px;
+
+                width: 250px;
+                height: 270px;
+            }
+
+            .mytaobao ul {
+                bottom: -70px;
+
+                width: 90px;
+                height: 70px;
+            }
+
+            .star ul {
+                bottom: -70px;
+
+                width: 80px;
+                height: 70px;
+            }
+
+            li {
+                position: relative;
+
+                height: 100%;
+                margin-right: 7px;
+                padding: 0px 6px;
+
+                border: 1px solid #f4f4f4;
+                border-bottom: none;
+
+                line-height: 35px;
+
+                ul {
+                    position: absolute;
+                    z-index: 999;
+                    left: -1px;
+
+                    display: none;
+                    overflow: auto;
+
+                    border: 1px solid #eee;
+                    border-top: none;
+                    background-color: #fff;
+
+                    li {
+                        width: 100%;
+                        height: 30px;
+
+                        border: none;
+
+                        &:hover {
+                            background-color: #f4f4f4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .url {
+        li {
+            float: right;
+        }
+
+        ul {
+            & li:nth-child(4) {
+                height: 35px;
+                padding: 0 5px;
+
+                font-size: 12px;
+                font-style: normal;
+                line-height: 35px;
+            }
+        }
+    }
+
+    .userinfo {
+        li {
+            float: left;
+        }
+    }
+}
+
+.footer {
+    height: 300px;
+
+    background-color: #fff;
+
+    .links {
+        position: relative;
+
+        overflow: hidden;
+
+        height: 72px;
+        margin-bottom: 8px;
+        padding-top: 10px;
+
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        ;
+
+        .position-bottom {
+            position: absolute;
+            bottom: 10px;
+        }
+
+        ul {
+            li {
+                float: left;
+
+                a {
+                    color: #6c6c6c;
+
+                    line-height: 30px;
+                }
+
+                &:first-child {
+                    margin-left: 5px;
+                }
+            }
+
+            b {
+                float: left;
+
+                height: 11px;
+                margin: 7px 6px 0px;
+                padding-right: 1px;
+
+                color: #ddd;
+            }
+        }
+    }
+
+    .problems {
+        a {
+            color: #6c6c6c;
+        }
+
+        i {
+            margin-left: 30px;
+
+            color: #9c9c9c;
+        }
+    }
+
+    .problems,
+    .beianinfo {
+        padding-left: 4px;
+
+        b {
+            margin: 0 3px;
+
+            color: #ddd !important;
+
+            font-weight: 400;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+    }
+
+    .beianinfo {
+        color: #9c9c9c;
+
+        span {
+            display: inline-block;
+
+            width: 20px;
+            height: 20px;
+
+            background: url(../images/govinfo.jpg) -861px 0px no-repeat;
+        }
+    }
+
+    .govinfo {
+        span {
+            a {
+                display: inline-block;
+
+                height: 40px;
+                margin-right: 15px;
+
+                background-image: url(../images/govinfo.jpg);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

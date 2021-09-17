@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+       import * as echarts from 'echarts';
+        import 'echarts-gl';
+
+        var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            backgroundColor: '#000',
+            globe: {
+                baseTexture: ROOT_PATH + "/data-gl/asset/world.topo.bathy.200401.jpg",
+                heightTexture: ROOT_PATH + "/data-gl/asset/world.topo.bathy.200401.jpg",
+                displacementScale: 0.04,
+                shading: 'realistic',
+                environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+                realisticMaterial: {
+                    roughness: 0.9
+                },
+                postEffect: {
+                    enable: true
+                },
+                light: {
+                    main: {
+                        intensity: 5,
+                        shadow: true
+                    },
+                    ambientCubemap: {
+                        texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
+                        diffuseIntensity: 0.2
+                    }
+                }
+            }
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>

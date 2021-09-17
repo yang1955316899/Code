@@ -1,0 +1,90 @@
+C51 COMPILER V9.60.0.0   KEY                                                               05/29/2021 15:24:06 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE key.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\key.l
+                    -st) TABS(2) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <myio.h>
+   3          #define PB P3
+   4          #define SEG P0
+   5          char code TAB[5] = {0xf9, 0xa4, 0xb0, 0x99, 0xf8};
+   6          
+   7          main()
+   8          {
+   9   1        LED = 0xff;
+  10   1        while (1)
+  11   1        {
+  12   2          PB = 0xff;
+  13   2          switch (~PB)
+  14   2          {
+  15   3          case 0x04:
+  16   3          {
+  17   4            debouncer();
+  18   4            while (~PB == 0x04)
+  19   4              SEG = TAB[0];
+  20   4            debouncer();
+  21   4            alter(3);
+  22   4            flash(3);
+  23   4            SEG = 0xff;
+  24   4            break;
+  25   4          }
+  26   3          case 0x08:
+  27   3          {
+  28   4            debouncer();
+  29   4            while (~PB == 0x08)
+  30   4              ;
+  31   4            SEG = TAB[1];
+  32   4            debouncer();
+  33   4            left(3);
+  34   4            flash(3);
+  35   4            SEG = 0xff;
+  36   4            break;
+  37   4          }
+  38   3          case 0x10:
+  39   3          {
+  40   4            debouncer();
+  41   4            while (~PB == 0x10)
+  42   4              ;
+  43   4            SEG = TAB[2];
+  44   4            debouncer();
+  45   4            right(3);
+  46   4            flash(3);
+  47   4            SEG = 0xff;
+  48   4            break;
+  49   4          }
+  50   3          case 0x30:
+  51   3          {
+  52   4            debouncer();
+  53   4            while (~PB == 0x30)
+  54   4              ;
+C51 COMPILER V9.60.0.0   KEY                                                               05/29/2021 15:24:06 PAGE 2   
+
+  55   4            SEG = TAB[4];
+  56   4            debouncer();
+  57   4            pili(3);
+  58   4            flash(3);
+  59   4            SEG = 0xff;
+  60   4            break;
+  61   4          }
+  62   3          }
+  63   2        }
+  64   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    541    ----
+   CONSTANT SIZE    =      5    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      16
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

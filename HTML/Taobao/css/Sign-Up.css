@@ -1,0 +1,94 @@
+.user-sign-up {
+  height: 500px;
+}
+.user-sign-up .logo {
+  position: relative;
+  padding-top: 30px;
+  margin-left: 20px;
+  left: 0px;
+  display: inline-block;
+}
+.user-sign-up .logo img {
+  width: 120px;
+}
+.user-sign-up .logo p {
+  position: absolute;
+  right: -70px;
+  font-size: 22px;
+  bottom: 0px;
+  font-weight: normal;
+  color: #3c3c3c;
+}
+.user-sign-up .form {
+  padding-top: 130px;
+  width: 400px;
+  margin: 0 auto;
+}
+.user-sign-up .form .submit {
+  margin-left: 80px;
+  margin-top: 30px;
+  background-image: linear-gradient(90deg, #f90, #ff5000);
+  border-radius: 3px;
+  width: 320px;
+  border: none;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
+  opacity: 0.5;
+}
+.user-sign-up .form td {
+  height: 36px;
+  line-height: 36px;
+}
+.user-sign-up .form td .tips {
+  width: 80px;
+  padding-right: 10px;
+  text-align: right;
+  margin-top: 20px;
+}
+.user-sign-up .form td .input-border {
+  position: relative;
+  margin-top: 20px;
+  height: 38px;
+  width: 320px;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+}
+.user-sign-up .form td .input-border .reg-phone,
+.user-sign-up .form td .input-border .reg-password {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: -380px;
+  width: 370px;
+  height: 36px;
+  line-height: 36px;
+}
+.user-sign-up .form td .input-border .select {
+  width: 136px;
+  height: 30px;
+  border: 0;
+  border-right: 1px solid #d6d6d6;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline-style: none;
+}
+.user-sign-up .form td .input-border input {
+  height: 34px;
+  padding-left: 10px;
+  outline-style: none;
+  font-family: sans-serif;
+  border: none;
+}
+.user-sign-up .form td .input-border input::-webkit-input-placeholder {
+  padding-left: 5px;
+  font-family: sans-serif;
+}
+.user-sign-up .form td .input-border .phone {
+  float: right;
+  width: 182px;
+  border: none;
+}
+.user-sign-up .form td .input-border .password {
+  width: 300px;
+}

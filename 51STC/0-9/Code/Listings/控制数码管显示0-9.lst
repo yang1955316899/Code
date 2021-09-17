@@ -1,0 +1,25 @@
+C51 COMPILER V9.60.0.0   ______________0_9                                                 05/23/2021 14:41:08 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ______________0_9
+OBJECT MODULE PLACED IN .\Objects\¿ØÖÆÊýÂë¹ÜÏÔÊ¾0-9.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE C:\Users\19553\Desktop\¿ØÖÆÊýÂë¹ÜÏÔÊ¾0-9.c OPTIMIZE(8,SPEED) BROWSE DEBU
+                    -G OBJECTEXTEND PRINT(.\Listings\¿ØÖÆÊýÂë¹ÜÏÔÊ¾0-9.lst) TABS(2) OBJECT(.\Objects\¿ØÖÆÊýÂë¹ÜÏÔÊ¾0-9.obj)
+
+line level    source
+
+*** WARNING C290 IN LINE 10 OF C:\Users\19553\Desktop\¿ØÖÆÊÂë¹ÜÏÔÊ¾0-9.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     68    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

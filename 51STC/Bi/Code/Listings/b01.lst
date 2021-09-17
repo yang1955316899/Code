@@ -1,0 +1,54 @@
+C51 COMPILER V9.60.0.0   B01                                                               05/23/2021 15:37:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE B01
+OBJECT MODULE PLACED IN .\Objects\b01.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE b01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\b01.l
+                    -st) TABS(2) OBJECT(.\Objects\b01.obj)
+
+line level    source
+
+   1           #include<reg51.h>
+   2           #define uchar unsigned char
+   3           #define uint unsigned int
+   4           #define SEG6 P1
+   5             sbit K1=P3^5; 
+   6             uchar code DSY_CODE[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x86,0x87};
+   7             uchar code SCAN[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+   8             uchar  DSY_DISP[]={0x2,0x0,0x0,0x1,0x1,0x2,0x3,0x1};
+   9             void DelayMS(uint ms) //??
+  10                {
+  11   1           uchar i;
+  12   1           while(ms--) for(i=0;i<120;i++);
+  13   1           }
+  14                  
+  15                   void main()
+  16                {uint i;
+  17   1           
+  18   1           while(1)
+  19   1             { 
+  20   2             for(i=0;i<8;i++)
+  21   2              { P2=SCAN[7-i];
+  22   3        
+  23   3                SEG6=~DSY_CODE[DSY_DISP[i]];
+  24   3            if(i==5||i==3){
+  25   4               SEG6=~DSY_CODE[DSY_DISP[i]]+0x80;
+  26   4            }
+  27   3                 DelayMS(4);
+  28   3                }
+  29   2               }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    116    ----
+   CONSTANT SIZE    =     20    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

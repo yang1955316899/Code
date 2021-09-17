@@ -1,0 +1,38 @@
+CREATE TABLE Student(
+	Sno CHAR(9) PRIMARY KEY,
+	Sname CHAR(20)UNIQUE,
+	Ssex CHAR(2),
+	Sage SMALLINT,
+	Sdept CHAR(20)
+);
+CREATE TABLE Course(
+	Cno CHAR(4)PRIMARY KEY,
+	Sname CHAR(20)UNIQUE,
+	Ssex CHAR(2),
+	Sdept CHAR(20)
+);
+CREATE TABLE SC(
+	Sno CHAR(9),
+	Cno CHAR(4),
+	Grade SMALLINT,
+	PRIMARY KEY (Sno,Cno),
+	FOREIGN KEY (Sno) REFERENCES Course(Cno)
+);
+ALTER TABLE SC ADD `教师` VARCHAR(8);
+ALTER TABLE SC ALTER COLUMN `教师` NUMBER(5,0);
+ALTER TABLE dept DROP COLUMN `教师`;
+CREATE TABLE class (
+	clno CHAR(5)PRIMARY KEY, 
+	speciality CHAR(20), 
+	inyear CHAR(5), 
+	number INT
+);
+CREATE TABLE classf(
+	clno CHAR(5),
+	NAME CHAR(8),
+	FOREIGN KEY (clno) REFERENCES class(clno)
+);
+#DROp table class;
+CREATE INDEX gradei ON SC(grade ASC);
+DROP INDEX gradei ON SC;
+CREATE CLUSTER INDEX Stusname ON Student(Sname ASC);

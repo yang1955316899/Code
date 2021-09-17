@@ -1,0 +1,12 @@
+INDEX VERSION 1.126+H:\Code\Java\SchoolCode\Number\.metadata\.plugins\org.eclipse.jdt.core
+2177755869.index
+3803244887.index
+4271791124.index
+300994473.index
+2242319832.index
+2093559757.index
+405539845.index
+2114902528.index
+3980891310.index
+1508370300.index
+7786453.index

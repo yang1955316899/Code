@@ -1,0 +1,5 @@
+package WordcountMapper;
+
+public class WordcountReducer {
+
+}

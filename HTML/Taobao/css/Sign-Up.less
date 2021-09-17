@@ -1,0 +1,121 @@
+// 元素控制
+.user-sign-up {
+    height: 500px;
+
+    .logo {
+        position: relative;
+        padding-top: 30px;
+        margin-left: 20px;
+        left: 0px;
+        display: inline-block;
+
+        img {
+
+            width: 120px;
+
+        }
+
+        p {
+            position: absolute;
+            right: -70px;
+            font-size: 22px;
+            bottom: 0px;
+            font-weight: normal;
+            color: #3c3c3c;
+        }
+    }
+
+    .form {
+        padding-top: 130px;
+        width: 400px;
+        margin: 0 auto;
+
+        .submit {
+            margin-left: 80px;
+            margin-top: 30px;
+            background-image: linear-gradient(90deg, #f90, #ff5000);
+            border-radius: 3px;
+            width: 320px;
+            border: none;
+            color: #fff;
+            height: 36px;
+            line-height: 36px;
+            opacity: .5;
+        }
+
+        td {
+            height: 36px;
+            line-height: 36px;
+
+
+            .tips {
+                width: 80px;
+                padding-right: 10px;
+                text-align: right;
+                margin-top: 20px;
+            }
+
+
+            .input-border {
+                position: relative;
+                margin-top: 20px;
+                height: 38px;
+                width: 320px;
+                border: 1px solid #d6d6d6;
+                border-radius: 5px;
+
+                .reg-phone,
+                .reg-password {
+                    display: none;
+                    position: absolute;
+                    top: 0px;
+                    right: -380px;
+                    width: 370px;
+                    height: 36px;
+                    line-height: 36px;
+                }
+
+                .select {
+                    width: 136px;
+                    height: 30px;
+                    border: 0;
+                    border-right: 1px solid #d6d6d6;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    outline-style: none;
+                }
+
+                input {
+                    height: 34px;
+                    padding-left: 10px;
+                    outline-style: none;
+                    font-family: sans-serif;
+                    border: none;
+
+
+                    &::-webkit-input-placeholder {
+                        padding-left: 5px;
+                        font-family: sans-serif;
+                    }
+                }
+
+
+                .phone {
+
+                    float: right;
+                    width: 182px;
+                    border: none;
+                }
+
+
+                .password {
+                    width: 300px;
+                }
+            }
+
+        }
+
+
+    }
+
+}

@@ -1,0 +1,128 @@
+.logo-banner {
+    height: 88px;
+    padding: 22px 0px;
+
+    img {
+        height: 45px;
+    }
+}
+
+.login {
+    background-image: url(../images/big-banner.jpg);
+    height: 600px;
+    margin-bottom: 70px;
+    background-position: 50%;
+    position: relative;
+
+    .user-login {
+        position: absolute;
+        top: 120px;
+        right: 260px;
+        width: 350px;
+        height: 352px;
+        background-color: hsla(0, 50%, 100%, .95);
+        padding: 25px;
+
+        p {
+            display: block;
+            width: 70px;
+            font: 16px/1.5 Microsoft YaHei,
+                tahoma,
+                arial,
+                Hiragino Sans GB,
+                \\5B8B\4F53,
+                sans-serif;
+            font-weight: 700;
+            border-bottom: 3px solid black;
+        }
+
+        .error {
+            visibility: hidden;
+            height: 30px;
+            width: 300px;
+            line-height: 30px;
+            padding-left: 10px;
+            margin-top: 10px;
+            color: #6c6c6c;
+            background-color: #fef2f2;
+            border: 1px solid #ff934c;
+        }
+
+        .form-login {
+
+            .submit {
+                margin-left: 0px;
+                margin-top: 30px;
+                border-radius: 3px;
+                width: 300px;
+                border: none;
+                color: #fff;
+                height: 36px;
+                font-weight: 700;
+                line-height: 36px;
+                background-color: #f40;
+            }
+
+            td {
+                height: 42px;
+                line-height: 42px;
+
+
+                .tips {
+                    width: 60px;
+                    padding-right: 10px;
+                    text-align: right;
+                    margin-top: 10px;
+                }
+
+
+                .input-border {
+                    position: relative;
+                    margin-top: 10px;
+                    height: 38px;
+                    width: 230px;
+
+                    .reg-phone,
+                    .reg-password {
+                        display: none;
+                        position: absolute;
+                        top: 0px;
+                        right: -380px;
+                        width: 370px;
+                        height: 42px;
+                        line-height: 42px;
+                    }
+
+                    input {
+                        height: 42px;
+                        padding-left: 10px;
+                        outline-style: none;
+                        font-family: sans-serif;
+                        border: none;
+
+
+                        &::-webkit-input-placeholder {
+                            padding-left: 5px;
+                            font-family: sans-serif;
+                        }
+                    }
+
+
+                    .phone {
+
+                        width: 100%;
+                        height: 100%;
+                    }
+
+
+                    .password {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+            }
+        }
+
+    }
+}
